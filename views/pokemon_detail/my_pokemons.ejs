@@ -1,0 +1,32 @@
+<div>Pokemon List Page</div>
+<%if(myPokemons.release != null){%>
+  <%if(myPokemons.release == true){%>
+    <p>Pokemon BERHASIL Dilepas</p>
+  <%}else{%>
+    <p>Pokemon GAGAL Dilepas</p>
+  <%}%>
+<%}%>
+<br>
+<% if(myPokemons == null) {%>
+  <div>Kamu belum memiliki pokemon</div>
+<%}else{%>
+  <div style="display:flex;flex-wrap: wrap;">
+    <% myPokemons.forEach(pokemon => { %>
+      <div style="display:flex;flex-direction:column;margin: 10px;">
+        <a href="/detail?url=<%=pokemon.url%>">
+          <img height="150" width="100" src="<%= pokemon.image%>" alt="Pokemon Image">
+        </a>
+        <div>True Name : <%= pokemon.name %></div>
+        <div>Nick Name : <%= pokemon.nick_name %></div>
+        <div style="display:flex;">
+          <form action="/release/<%= pokemon.id%>">
+            <button type="submit">Release</button>
+          </form>
+          <form action="/rename/<%= pokemon.id%>">
+            <button type="submit">Rename</button>
+          </form>
+        </div>
+      </div>
+    <% })%>
+  </div>
+<%}%>

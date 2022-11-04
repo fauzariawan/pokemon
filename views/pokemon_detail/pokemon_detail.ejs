@@ -1,0 +1,31 @@
+
+<br>
+<div>POKEMON DETAIL PAGE</div>
+<br>
+<div style="display:flex;background-color:greenyellow;">
+  <div style="width:50%;background-color:grey">
+    <img height="150" width="100" src="<%= pokemonDetail.image%>" alt="Pokemon Image">
+    <a href="/catch?id=<%= pokemonDetail.id%>&name=<%= pokemonDetail.name%>" style="border: 1px solid black;text-decoration:none;background-color: aquamarine;border-radius: .5rem;padding: .5rem 1rem;font-size: 1.2rem;font-family: 'Roboto';text-align: center;">Catch</a>
+    <% if (pokemonDetail.isCatched != null){%>
+      <% if (pokemonDetail.isCatched == true){%>
+        <div>Kamu Berhasil Menangkap Pokemon <%= pokemonDetail.name %></div>
+        <form action="/savePoke/<%=pokemonDetail.id%>" method="POST">
+          <label for="">Nick Name</label>
+          <input type="text" name="nick_name">
+          <button type="submit"> Add To My Poke List</button>
+        </form>
+      <%}else{%>
+        <div>Kamu Gagal Menangkap Pokemon <%= pokemonDetail.name %></div>
+      <%}%>
+    <%}%>
+  </div>
+  <div>
+    <p>Id: <%= pokemonDetail.id%></p>
+    <p>Name : <%= pokemonDetail.name%></p>
+    <p>Height : <%= pokemonDetail.height%></p>
+    <p>Weight : <%= pokemonDetail.weight%></p>
+    <p>Moves : <%= pokemonDetail.moves%></p>
+    <p>Types : <%= pokemonDetail.types%></p>
+  </div>
+</div>
+

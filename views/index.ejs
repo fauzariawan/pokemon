@@ -1,0 +1,14 @@
+<h2 class="page-header">
+  Pokemon List Page
+</h2>
+
+<div style="display:flex;flex-wrap: wrap;">
+  <% pokemons.forEach(pokemon => { %>
+    <div style="display:flex;flex-direction:column">
+      <a href="/detail?url=<%=pokemon.url%>">
+        <img height="150" width="100" src="<%= pokemon.image%>" alt="Pokemon Image">
+      </a>
+      <p><%= pokemon.name %></p>
+    </div>
+  <% })%>
+</div>
