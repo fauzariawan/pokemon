@@ -18,6 +18,7 @@
     "local-storage": "^2.0.0",
     "prime-number": "^1.0.2",
     "probability-node": "0.0.1",
-    "random-number": "0.0.9"
+    "random-number": "0.0.9",
+    "redis": "^4.4.0"
   }
 }
